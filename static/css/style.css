@@ -1,0 +1,237 @@
+/**
+ * OPIS - Ocean Plant Intelligence System
+ * Ocean-themed styling with deep blues, greens, and clean typography
+ */
+
+/* Ocean Background Gradient */
+.ocean-background {
+  background: linear-gradient(
+    135deg,
+    #0a4d68 0%,
+    #088395 25%,
+    #05bfdb 50%,
+    #00d9ff 75%,
+    #0ef6cc 100%
+  );
+  background-size: 400% 400%;
+  animation: oceanWave 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated ocean wave effect */
+@keyframes oceanWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Add subtle wave overlay */
+.ocean-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0 C150,100 350,0 500,50 C650,100 850,0 1000,50 C1150,100 1200,0 1200,0 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+  background-size: cover;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Ocean Header Styling */
+.ocean-header {
+  background: linear-gradient(135deg, #0a4d68 0%, #088395 50%, #05bfdb 100%);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Card Styling */
+.card {
+  border-radius: 15px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.card-body {
+  background: rgba(255, 255, 255, 0.98);
+}
+
+/* Ocean-themed Button */
+.ocean-btn {
+  background: linear-gradient(135deg, #088395 0%, #05bfdb 100%);
+  border: none;
+  border-radius: 10px;
+  padding: 12px 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(8, 131, 149, 0.3);
+}
+
+.ocean-btn:hover {
+  background: linear-gradient(135deg, #05bfdb 0%, #00d9ff 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(8, 131, 149, 0.4);
+}
+
+.ocean-btn:active {
+  transform: translateY(0);
+}
+
+/* Form Select Styling */
+.form-select {
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.form-select:focus {
+  border-color: #05bfdb;
+  box-shadow: 0 0 0 0.25rem rgba(5, 191, 219, 0.25);
+}
+
+/* Button Group Styling */
+.btn-group .btn {
+  border-radius: 8px;
+  margin: 0 2px;
+  transition: all 0.3s ease;
+}
+
+.btn-check:checked + .btn {
+  background: linear-gradient(135deg, #088395 0%, #05bfdb 100%);
+  border-color: #05bfdb;
+  color: white;
+  font-weight: 600;
+}
+
+/* Progress Bar Styling */
+.progress {
+  border-radius: 10px;
+  background-color: #e9ecef;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+  border-radius: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 1s ease-in-out;
+}
+
+/* Badge Styling */
+.badge {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* Alert Styling */
+.alert {
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.alert-success {
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  color: #155724;
+}
+
+.alert-warning {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  color: #856404;
+}
+
+.alert-danger {
+  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+  color: #721c24;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.text-primary {
+  color: #088395 !important;
+}
+
+/* Card Hover Effect */
+.card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ocean-background {
+    padding: 20px 10px;
+  }
+
+  .card-body {
+    padding: 2rem !important;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+
+  .btn-group .btn {
+    margin: 2px 0;
+    width: 100%;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .ocean-background {
+    background: white;
+  }
+
+  .ocean-btn,
+  .btn {
+    display: none;
+  }
+
+  .card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #088395 0%, #05bfdb 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #05bfdb 0%, #00d9ff 100%);
+}
