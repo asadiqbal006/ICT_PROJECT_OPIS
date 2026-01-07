@@ -1,6 +1,5 @@
 /**
  * OPIS - Simple JavaScript Animations
- * Smooth, non-intrusive animations for better user experience
  */
 
 // Wait for DOM to be fully loaded
