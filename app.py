@@ -11,27 +11,44 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def index():
-    """Render the main input form."""
-    return render_template('index.html')
+def home():
+    """Render the home page."""
+    return render_template('home.html')
 
 
-@app.route('/analyze', methods=['POST'])
+@app.route('/analyze', methods=['GET', 'POST'])
 def analyze():
-    """Process form data and calculate ocean health metrics."""
-    plant_type = request.form.get('plant_type')
-    density = request.form.get('density')
-    pollution = request.form.get('pollution')
-    temperature = request.form.get('temperature')
-    
-    # Validate inputs
-    if not all([plant_type, density, pollution, temperature]):
-        return redirect(url_for('index'))
-    
-    # Calculate ocean health metrics
-    results = calculate_ocean_health(plant_type, density, pollution, temperature)
-    
-    return render_template('result.html', results=results)
+    """Render the main input form or process form data."""
+    if request.method == 'POST':
+        # Process form data and calculate ocean health metrics
+        plant_type = request.form.get('plant_type')
+        density = request.form.get('density')
+        pollution = request.form.get('pollution')
+        temperature = request.form.get('temperature')
+        
+        # Validate inputs
+        if not all([plant_type, density, pollution, temperature]):
+            return redirect(url_for('analyze'))
+        
+        # Calculate ocean health metrics
+        results = calculate_ocean_health(plant_type, density, pollution, temperature)
+        
+        return render_template('result.html', results=results)
+    else:
+        # Render the main input form
+        return render_template('index.html')
+
+
+@app.route('/about')
+def about():
+    """Render the about us page."""
+    return render_template('about.html')
+
+
+@app.route('/contact')
+def contact():
+    """Render the contact us page."""
+    return render_template('contact.html')
 
 
 if __name__ == '__main__':
